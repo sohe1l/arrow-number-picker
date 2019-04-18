@@ -19,6 +19,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:padding="@dimen/btn_padding"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -34,11 +35,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:padding="@dimen/btn_padding"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/picker_text_view"
+        android:id="@+id/tv_number"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/picker_background"
