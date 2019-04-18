@@ -84,6 +84,10 @@ public class ArrowNumberPicker extends FrameLayout {
         init(context, attrs);
     }
 
+    public int getCount(){
+        return count;
+    }
+
 //
 //    @Override
 //    protected void onDraw(Canvas canvas) {
