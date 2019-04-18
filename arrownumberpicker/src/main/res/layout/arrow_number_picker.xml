@@ -3,47 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
-        android:layout_width="wrap_content"
+    <TextView
+
+        android:id="@+id/tv_minus"
+        android:text="@string/minus"
+        android:background="@drawable/rect"
+        android:textColor="@color/button_text"
+        android:textSize="16sp"
+        android:layout_width="@dimen/btn_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="-"
+        android:padding="@dimen/btn_padding"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton2"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tv_plus"
+        android:text="@string/plus"
+        android:background="@drawable/rect"
+        android:textColor="@color/button_text"
+        android:textSize="16sp"
+        android:layout_width="@dimen/btn_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="+"
+        android:padding="@dimen/btn_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:id="@+id/picker_text_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/picker_background"
         android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/materialButton2"
-        app:layout_constraintEnd_toStartOf="@+id/materialButton2"
-        app:layout_constraintStart_toEndOf="@+id/materialButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="1"
+        android:textColor="@color/picker_text"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_plus"
+        app:layout_constraintEnd_toStartOf="@+id/tv_plus"
+        app:layout_constraintStart_toEndOf="@+id/tv_minus"
+        app:layout_constraintTop_toTopOf="@+id/tv_plus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

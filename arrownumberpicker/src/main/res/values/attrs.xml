@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="ArrowNumberPicker">
+        <!-- button -->
+        <attr name="button_width" format="dimension"/>
+        <attr name="button_text_size" format="dimension"/>
+
+        <attr name="primaryColor" format="color" />
+
+
+        <attr name="textSize" format="dimension" />
         <attr name="showText" format="boolean" />
         <attr name="labelPosition" format="enum">
             <enum name="left" value="0"/>

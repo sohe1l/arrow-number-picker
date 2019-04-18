@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ArrowNumberPicker</string>
+    <string name="dimz">14sp</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
 </resources>

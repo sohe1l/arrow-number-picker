@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_font_size">16dp</dimen>
+    <dimen name="btn_padding">8dp</dimen>
+    <dimen name="btn_width">50dp</dimen>
+</resources>

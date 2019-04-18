@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="button_border">#DA0000</color>
+    <color name="button_text">#DA0000</color>
+
+
+    <color name="picker_background">#DA0000</color>
+    <color name="picker_text">#fff</color>
+
+</resources>
