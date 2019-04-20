@@ -2,7 +2,7 @@
 
 Customizable android component for picking an integer.
 
-<img src="screenshot.png" width="175">
+<img src="screenshot.png">
 
 ## Installation
 
