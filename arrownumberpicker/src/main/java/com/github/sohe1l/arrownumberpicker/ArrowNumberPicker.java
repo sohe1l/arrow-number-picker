@@ -3,16 +3,17 @@ package com.github.sohe1l.arrownumberpicker;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Debug;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 
 public class ArrowNumberPicker extends FrameLayout {
 
@@ -21,7 +22,7 @@ public class ArrowNumberPicker extends FrameLayout {
     private TextView tvPlus;
     private TextView tvMinus;
 
-    private int count = 0;
+    private int selectedValue = 0;
 
     private Context context;
 
@@ -34,59 +35,66 @@ public class ArrowNumberPicker extends FrameLayout {
         tvPlus = findViewById(R.id.tv_plus);
         tvMinus = findViewById(R.id.tv_minus);
 
-        TypedArray attrTypedArray = context.obtainStyledAttributes(attrs, R.styleable.ArrowNumberPicker, 0, 0);
-        setAttrs(attrTypedArray);
-
+        setAttrs(attrs);
         setClickListeners();
     }
 
-    private void setAttrs(TypedArray a){
-        Resources res = context.getResources();
+    private void setAttrs(@Nullable AttributeSet attrs){
 
-        // Button Colors
-        int buttonTextColor = a.getColor(R.styleable.ArrowNumberPicker_button_text_color, res.getColor(R.color.button_text));
-        tvPlus.setTextColor(buttonTextColor);
-        tvMinus.setTextColor(buttonTextColor);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ArrowNumberPicker, 0, 0);
+        setPickerAttr(a, tvPicker);
+        setButtunAttr(a, tvPlus);
+        setButtunAttr(a, tvMinus);
+        a.recycle();
+    }
+
+    private void setPickerAttr(TypedArray a, TextView tv){
+        Resources res = context.getResources();
 
         // Picker Colors
         int pickerTextColor = a.getColor(R.styleable.ArrowNumberPicker_picker_text_color, res.getColor(R.color.picker_text));
         int pickerBackgroundColor = a.getColor(R.styleable.ArrowNumberPicker_picker_background_color, res.getColor(R.color.picker_background));
-        tvPicker.setTextColor(pickerTextColor);
-        tvPicker.setBackgroundColor(pickerBackgroundColor);
-
-        // Button Dimens
-        int buttonWidth = a.getDimensionPixelSize(R.styleable.ArrowNumberPicker_button_width, res.getDimensionPixelSize(R.dimen.btn_width));
-        float buttonTextSize = a.getDimension(R.styleable.ArrowNumberPicker_button_text_size, res.getDimension(R.dimen.btn_text_size));
-        tvPlus.setWidth(buttonWidth);
-        tvPlus.setTextSize(buttonTextSize);
-        tvMinus.setWidth(buttonWidth);
-        tvMinus.setTextSize(buttonTextSize);
+        tv.setTextColor(pickerTextColor);
+        tv.setBackgroundColor(pickerBackgroundColor);
 
         // Picker Dimens
         float pickerTextSize = a.getDimension(R.styleable.ArrowNumberPicker_picker_text_size, res.getDimension(R.dimen.picker_text_size));
-        tvPicker.setTextSize(pickerTextSize);
+        tv.setTextSize(pickerTextSize);
+    }
 
-        a.recycle();
+    private void setButtunAttr(TypedArray a, TextView tv){
+        Resources res = context.getResources();
+
+        int buttonTextColor = a.getColor(R.styleable.ArrowNumberPicker_button_text_color, res.getColor(R.color.button_text));
+        tv.setTextColor(buttonTextColor);
+
+        int buttonPadding = a.getDimensionPixelSize(R.styleable.ArrowNumberPicker_button_padding, res.getDimensionPixelSize(R.dimen.btn_padding));
+        int buttonWidth = a.getDimensionPixelSize(R.styleable.ArrowNumberPicker_button_width, res.getDimensionPixelSize(R.dimen.btn_width));
+        float buttonTextSize = a.getDimension(R.styleable.ArrowNumberPicker_button_text_size, res.getDimension(R.dimen.btn_text_size));
+
+        tv.setTextSize(buttonTextSize);
+        tv.setPadding(buttonPadding, buttonPadding, buttonPadding, buttonPadding);
+
+        ViewGroup.LayoutParams params = tv.getLayoutParams();
+        params.width = buttonWidth;
+        tv.setLayoutParams(params);
 
         // set button drawable attributes
         int buttonBorderColor = a.getColor(R.styleable.ArrowNumberPicker_button_border_color, res.getColor(R.color.button_border));
         int buttonBackgroundColor = a.getColor(R.styleable.ArrowNumberPicker_button_background_color, res.getColor(R.color.button_background));
         int buttonBorderWidth = a.getDimensionPixelSize(R.styleable.ArrowNumberPicker_button_border_width, res.getDimensionPixelSize(R.dimen.btn_border_width));
 
-        GradientDrawable plusBg = (GradientDrawable)tvPlus.getBackground();
-        plusBg.setStroke(buttonBorderWidth, buttonBorderColor);
-        plusBg.setColor(buttonBackgroundColor);
-
-        GradientDrawable minusBg = (GradientDrawable)tvMinus.getBackground();
-        minusBg.setStroke(buttonBorderWidth, buttonBorderColor);
-        minusBg.setColor(buttonBackgroundColor);
+        GradientDrawable bg = (GradientDrawable)tv.getBackground();
+        bg.setStroke(buttonBorderWidth, buttonBorderColor);
+        bg.setColor(buttonBackgroundColor);
     }
+
 
     private void setClickListeners(){
         tvPlus.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                count ++;
+                selectedValue++;
                 updateCounter();
             }
         });
@@ -94,8 +102,8 @@ public class ArrowNumberPicker extends FrameLayout {
         tvMinus.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(count>0){
-                    count --;
+                if(selectedValue >0){
+                    selectedValue--;
                     updateCounter();
                 }
             }
@@ -103,7 +111,7 @@ public class ArrowNumberPicker extends FrameLayout {
     }
 
     private void updateCounter(){
-        tvPicker.setText(String.valueOf(count));
+        tvPicker.setText(String.valueOf(selectedValue));
     }
 
     public ArrowNumberPicker(Context context) {
@@ -123,14 +131,7 @@ public class ArrowNumberPicker extends FrameLayout {
         init(context, attrs);
     }
 
-    public int getCount(){
-        return count;
+    public int getValue(){
+        return selectedValue;
     }
-
-//
-//    @Override
-//    protected void onDraw(Canvas canvas) {
-//        super.onDraw(canvas);
-//        canvas.drawColor(Color.RED);
-//    }
 }

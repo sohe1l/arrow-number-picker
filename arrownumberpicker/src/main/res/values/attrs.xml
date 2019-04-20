@@ -12,6 +12,7 @@
         <attr name="picker_background_color" format="color"/>
 
         <!-- Button Dimens -->
+        <attr name="button_padding" format="dimension"/>
         <attr name="button_border_width" format="dimension"/>
         <attr name="button_width" format="dimension"/>
         <attr name="button_text_size" format="dimension"/>

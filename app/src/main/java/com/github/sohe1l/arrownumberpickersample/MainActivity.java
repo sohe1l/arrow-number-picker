@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.sohe1l.arrownumberpicker.ArrowNumberPicker;
@@ -18,12 +19,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        numPicker = findViewById(R.id.num_picker);
+        numPicker = findViewById(R.id.number_picker);
+        int count = numPicker.getValue();
+
         tvVal = findViewById(R.id.tvCurrentVal);
 
     }
 
     public void updateNumber(View view){
-        tvVal.setText(String.valueOf( numPicker.getCount() ));
+
+
+
+
+        tvVal.setText(String.valueOf( numPicker.getValue() ));
     }
 }
