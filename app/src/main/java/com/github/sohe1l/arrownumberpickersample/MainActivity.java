@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        numPicker = findViewById(R.id.number_picker);
+        numPicker = findViewById(R.id.number_picker_custom);
         int count = numPicker.getValue();
 
         tvVal = findViewById(R.id.tvCurrentVal);
@@ -27,10 +27,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateNumber(View view){
-
-
-
-
         tvVal.setText(String.valueOf( numPicker.getValue() ));
     }
 }

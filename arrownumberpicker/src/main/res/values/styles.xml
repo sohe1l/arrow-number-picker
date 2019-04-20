@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto">
     <style name="Picker_Button">
         <item name="android:background">@drawable/rect</item>
         <item name="android:textColor">@color/button_text</item>
