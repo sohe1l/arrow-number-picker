@@ -2,6 +2,9 @@
 
 Customizable android component for picking an integer.
 
+
+![Usage Sample](screenshot.png | width=150)
+
 ## Installation
 
 Download to your project directory. 
