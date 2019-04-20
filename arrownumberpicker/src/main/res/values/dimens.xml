@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="default_font_size">16dp</dimen>
+
+    <!-- Picker -->
+    <dimen name="picker_text_size">16sp</dimen>
+
+
+    <!-- Buttons -->
+    <dimen name="btn_text_size">16sp</dimen>
     <dimen name="btn_padding">8dp</dimen>
     <dimen name="btn_width">50dp</dimen>
+    <dimen name="btn_border_width">1dp</dimen>
+
 </resources>

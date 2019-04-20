@@ -7,40 +7,22 @@
     android:layout_height="wrap_content">
 
     <TextView
-
         android:id="@+id/tv_minus"
         android:text="@string/minus"
-        android:background="@drawable/rect"
-        android:textColor="@color/button_text"
-        android:textSize="16sp"
-        android:layout_width="@dimen/btn_width"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/btn_padding"
-        android:gravity="center"
+        style="@style/Picker_Button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tv_plus"
         android:text="@string/plus"
-        android:background="@drawable/rect"
-        android:textColor="@color/button_text"
-        android:textSize="16sp"
-        android:layout_width="@dimen/btn_width"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/btn_padding"
-        android:gravity="center"
+        style="@style/Picker_Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_number"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/picker_background"
-        android:gravity="center"
-        android:text="1"
-        android:textColor="@color/picker_text"
+        android:id="@+id/tv_picker"
+        style="@style/Picker_Picker"
         app:layout_constraintBottom_toBottomOf="@+id/tv_plus"
         app:layout_constraintEnd_toStartOf="@+id/tv_plus"
         app:layout_constraintStart_toEndOf="@+id/tv_minus"
