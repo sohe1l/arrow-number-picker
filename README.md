@@ -4,10 +4,16 @@ Customizable android component for picking an integer.
 
 <img src="screenshot.png">
 
+
 ## Installation
 
-Download to your project directory. 
-Add ArrowNumberPicker as project dependency.
+Make sure jcenter is in your project build settings and then simply add the following to the dependencies section of your app:
+
+```groovy
+    implementation 'com.github.sohe1l.arrownumberpicker:arrownumberpicker:0.1.0'
+```
+
+This project requires API level 16.
 
 ## Usage
 
