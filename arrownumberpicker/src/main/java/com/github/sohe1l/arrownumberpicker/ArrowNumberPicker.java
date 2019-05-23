@@ -134,4 +134,10 @@ public class ArrowNumberPicker extends FrameLayout {
     public int getValue(){
         return selectedValue;
     }
+
+    public void setValue(int newValue){
+        selectedValue = newValue;
+        updateCounter();
+    }
+
 }

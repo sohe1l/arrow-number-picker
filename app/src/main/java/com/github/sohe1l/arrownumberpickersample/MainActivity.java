@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         numPicker = findViewById(R.id.number_picker_custom);
         int count = numPicker.getValue();
 
+        numPicker.setValue(24);
+
         tvVal = findViewById(R.id.tvCurrentVal);
 
     }
