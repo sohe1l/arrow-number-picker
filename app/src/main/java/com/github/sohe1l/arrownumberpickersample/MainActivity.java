@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.github.sohe1l.arrownumberpicker.ArrowNumberPicker;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ArrowNumberPicker.PickerChangeListener {
 
     private ArrowNumberPicker numPicker;
     private TextView tvVal;
@@ -23,12 +23,18 @@ public class MainActivity extends AppCompatActivity {
         int count = numPicker.getValue();
 
         numPicker.setValue(24);
+        numPicker.setPickerChangedListener(this);
 
         tvVal = findViewById(R.id.tvCurrentVal);
 
     }
 
     public void updateNumber(View view){
+        tvVal.setText(String.valueOf( numPicker.getValue() ));
+    }
+
+    @Override
+    public void onPickerChanged(int newValue) {
         tvVal.setText(String.valueOf( numPicker.getValue() ));
     }
 }

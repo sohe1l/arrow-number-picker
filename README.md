@@ -10,7 +10,7 @@ Customizable android component for picking an integer.
 Make sure jcenter is in your project build settings and then simply add the following to the dependencies section of your app:
 
 ```groovy
-    implementation 'com.github.sohe1l.arrownumberpicker:arrownumberpicker:0.1.1'
+    implementation 'com.github.sohe1l.arrownumberpicker:arrownumberpicker:0.1.2'
 ```
 
 This project requires API level 16.
@@ -32,6 +32,26 @@ To get the selected value:
 ```java
     ArrowNumberPicker arrowNumberPicker = findViewById(R.id.number_picker);
     int count = numPicker.getValue();
+```
+
+
+To set the picker value dyanmically:
+
+```java
+    ArrowNumberPicker arrowNumberPicker = findViewById(R.id.number_picker);
+    numPicker.setValue(24);
+```
+
+To set a callback listener for change event:
+
+```java
+    // on your activity
+    // implement ArrowNumberPicker.PickerChangeListener 
+
+    @Override
+    public void onPickerChanged(int newValue) {
+        // use newValue or numPicker.getValue()
+    }
 ```
 
 

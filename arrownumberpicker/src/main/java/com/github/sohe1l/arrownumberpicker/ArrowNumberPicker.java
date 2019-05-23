@@ -112,6 +112,9 @@ public class ArrowNumberPicker extends FrameLayout {
 
     private void updateCounter(){
         tvPicker.setText(String.valueOf(selectedValue));
+        if(listener != null){
+            listener.onPickerChanged(selectedValue);
+        }
     }
 
     public ArrowNumberPicker(Context context) {
@@ -139,5 +142,21 @@ public class ArrowNumberPicker extends FrameLayout {
         selectedValue = newValue;
         updateCounter();
     }
+
+
+
+    // listener -->
+
+    public interface PickerChangeListener {
+        void onPickerChanged(int newValue);
+    }
+
+    private PickerChangeListener listener;
+
+    public void setPickerChangedListener(PickerChangeListener l){
+        listener = l;
+    }
+    // listener <--
+
 
 }

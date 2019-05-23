@@ -70,7 +70,7 @@ ext {
     siteUrl = 'https://github.com/sohe1l/arrow-number-picker'
     gitUrl = 'https://github.com/sohe1l/arrow-number-picker.git'
 
-    libraryVersion = '0.1.1'
+    libraryVersion = '0.1.2'
 
     developerId = 'sohe1l'
     developerName = 'Soheil Ansari'

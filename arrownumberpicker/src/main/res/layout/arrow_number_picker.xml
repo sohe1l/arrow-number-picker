@@ -23,7 +23,7 @@
     <TextView
         android:id="@+id/tv_picker"
         style="@style/Picker_Picker"
-        app:layout_constraintWidth_min="70dp"
+        app:layout_constraintWidth_min="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_plus"
         app:layout_constraintEnd_toStartOf="@+id/tv_plus"
         app:layout_constraintStart_toEndOf="@+id/tv_minus"
